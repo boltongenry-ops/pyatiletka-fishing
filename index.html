@@ -228,7 +228,7 @@
 
             <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl text-white mb-4 drop-shadow-lg">База <span class="gold-gradient-text italic">Пятилетка</span></h1>
             <p class="text-gray-300 text-lg md:text-xl max-w-2xl mb-12 font-light tracking-wide">
-                Два водоема для отличной рыбалки: форелевый и карповый. Комфортный отдых на природе всего в нескольких минутах от городской суеты.
+                Три водоема для отличной рыбалки: осетровый, форелевый и карповый. Комфортный отдых на природе всего в нескольких минутах от городской суеты.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -260,8 +260,8 @@
                 </div>
                 <div class="p-4">
                     <i class="fa-solid fa-fish-fins text-3xl text-gold-500 mb-4"></i>
-                    <h3 class="font-serif text-xl text-white mb-2">Два Водоема</h3>
-                    <p class="text-gray-400 text-sm font-light">Форелевый и карповый пруды. Водоемы регулярно зарыбляются, отличный клев гарантирован.</p>
+                    <h3 class="font-serif text-xl text-white mb-2">Три Водоема</h3>
+                    <p class="text-gray-400 text-sm font-light">Осетровый, форелевый и карповый пруды. Водоемы регулярно зарыбляются, отличный клев гарантирован.</p>
                 </div>
                 <div class="p-4">
                     <i class="fa-solid fa-house-chimney text-3xl text-gold-500 mb-4"></i>
@@ -286,38 +286,71 @@
                 <div class="h-1 w-20 bg-gold-500 mx-auto"></div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 
-                <!-- Форель -->
-                <div class="glass-panel p-6 md:p-8 rounded-2xl relative group hover:-translate-y-2 transition duration-300 border border-blue-500/30">
-                    <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs px-3 py-1 rounded-bl-lg rounded-tr-2xl uppercase tracking-wider font-bold shadow-lg shadow-blue-500/20">
-                        Форелевый водоем
+                <!-- Форель (серая - скоро открытие) -->
+                <div class="glass-panel p-6 md:p-8 rounded-2xl relative group transition duration-300 border border-gray-600/30 opacity-75 hover:opacity-90">
+                    <div class="absolute top-0 right-0 bg-gray-600 text-gray-300 text-xs px-3 py-1 rounded-bl-lg rounded-tr-2xl uppercase tracking-wider font-bold">
+                        Открытие 15 сентября
                     </div>
-                    <h3 class="font-serif text-2xl text-white mb-2">Ловля Форели</h3>
-                    <p class="text-gray-400 text-sm mb-6">Спортивная рыбалка на хищника. <br><b>Строго: 1 снасть, 1 крючок.</b></p>
+                    <h3 class="font-serif text-2xl text-gray-400 mb-2">Ловля Форели</h3>
+                    <p class="text-gray-500 text-sm mb-6">Спортивная рыбалка на хищника. <br><b>Строго: 1 снасть, 1 крючок.</b></p>
                     
                     <div class="space-y-6 mb-8">
                         <div class="flex justify-between items-end border-b border-dark-800 pb-2">
                             <div>
-                                <div class="text-lg text-gray-200">5 часов</div>
-                                <div class="text-xs text-blue-400 uppercase tracking-wide">Безлимит вылова</div>
+                                <div class="text-lg text-gray-400">5 часов</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wide">Безлимит вылова</div>
                             </div>
-                            <div class="font-serif text-3xl text-white">3000<span class="text-xl text-gray-500">₽</span></div>
+                            <div class="font-serif text-3xl text-gray-400">3000<span class="text-xl text-gray-600">₽</span></div>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-dark-800 pb-2">
+                            <div>
+                                <div class="text-lg text-gray-400">10 часов</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wide">Безлимит вылова</div>
+                            </div>
+                            <div class="font-serif text-3xl text-gray-400">5000<span class="text-xl text-gray-600">₽</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm text-gray-500">
+                        <ul class="space-y-2">
+                            <li><i class="fa-solid fa-triangle-exclamation text-red-500/60 mr-2"></i> Рыбалка без подсака <b>запрещена</b>!</li>
+                            <li><i class="fa-solid fa-triangle-exclamation text-red-500/60 mr-2"></i> Багрить рыбу <b>строго запрещено</b>!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Осетр -->
+                <div class="glass-panel p-6 md:p-8 rounded-2xl relative group hover:-translate-y-2 transition duration-300 border border-teal-500/30">
+                    <div class="absolute top-0 right-0 bg-teal-600 text-white text-xs px-3 py-1 rounded-bl-lg rounded-tr-2xl uppercase tracking-wider font-bold shadow-lg shadow-teal-500/20">
+                        Осетровый водоем
+                    </div>
+                    <h3 class="font-serif text-2xl text-white mb-2">Ловля Осетра</h3>
+                    <p class="text-gray-400 text-sm mb-6">Трофейная рыбалка. <br><b>1 снасть (2 крючка). Безлимит по вылову.</b></p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex justify-between items-end border-b border-dark-800 pb-2">
+                            <div>
+                                <div class="text-lg text-gray-200">3 часа</div>
+                                <div class="text-xs text-teal-400 uppercase tracking-wide">Безлимит вылова</div>
+                            </div>
+                            <div class="font-serif text-3xl text-white">5000<span class="text-xl text-gray-500">₽</span></div>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-dark-800 pb-2">
+                            <div>
+                                <div class="text-lg text-gray-200">5 часов</div>
+                                <div class="text-xs text-teal-400 uppercase tracking-wide">Безлимит вылова</div>
+                            </div>
+                            <div class="font-serif text-3xl text-white">7000<span class="text-xl text-gray-500">₽</span></div>
                         </div>
                         <div class="flex justify-between items-end border-b border-dark-800 pb-2">
                             <div>
                                 <div class="text-lg text-gray-200">10 часов</div>
-                                <div class="text-xs text-blue-400 uppercase tracking-wide">Безлимит вылова</div>
+                                <div class="text-xs text-teal-400 uppercase tracking-wide">Безлимит вылова</div>
                             </div>
-                            <div class="font-serif text-3xl text-white">5000<span class="text-xl text-gray-500">₽</span></div>
+                            <div class="font-serif text-3xl text-white">10000<span class="text-xl text-gray-500">₽</span></div>
                         </div>
-                    </div>
-                    
-                    <div class="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm text-gray-300">
-                        <ul class="space-y-2">
-                            <li><i class="fa-solid fa-triangle-exclamation text-red-500 mr-2"></i> Рыбалка без подсака <b>запрещена</b>!</li>
-                            <li><i class="fa-solid fa-triangle-exclamation text-red-500 mr-2"></i> Багрить рыбу <b>строго запрещено</b>!</li>
-                        </ul>
                     </div>
                 </div>
 
@@ -356,7 +389,7 @@
             </div>
 
             <!-- Допы -->
-            <div class="mt-12 max-w-5xl mx-auto flex flex-wrap justify-center gap-4 text-sm">
+            <div class="mt-12 max-w-7xl mx-auto flex flex-wrap justify-center gap-4 text-sm">
                 <span class="px-4 py-2 rounded-full border border-dark-800 bg-dark-900/50 text-gray-300">
                     <i class="fa-solid fa-users mr-2 text-gray-500"></i>Отдыхающие: 300₽
                 </span>
