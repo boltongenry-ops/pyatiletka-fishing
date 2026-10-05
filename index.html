@@ -170,6 +170,40 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Золотая пульсирующая обводка карточки */
+        @keyframes goldPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.7), 0 0 0 0 rgba(251, 191, 36, 0.55), 0 0 18px rgba(251, 191, 36, 0.25);
+                border-color: rgba(251, 191, 36, 0.85);
+            }
+            50% {
+                box-shadow: 0 0 0 1px rgba(251, 191, 36, 1), 0 0 0 10px rgba(251, 191, 36, 0), 0 0 30px rgba(251, 191, 36, 0.55);
+                border-color: rgba(251, 191, 36, 1);
+            }
+        }
+        .gold-pulse {
+            animation: goldPulse 2s ease-in-out infinite;
+        }
+
+        /* Бегущая строка */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee__inner {
+            display: inline-block;
+            white-space: nowrap;
+            will-change: transform;
+            animation: marqueeMove 16s linear infinite;
+        }
+        @keyframes marqueeMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .gold-pulse, .marquee__inner { animation: none; }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-gold-500 selection:text-white">
@@ -288,36 +322,45 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 
-                <!-- Форель (серая - скоро открытие) -->
-                <div class="glass-panel p-6 md:p-8 rounded-2xl relative group transition duration-300 border border-gray-600/30 opacity-75 hover:opacity-90">
-                    <div class="absolute top-0 right-0 bg-gray-600 text-gray-300 text-xs px-3 py-1 rounded-bl-lg rounded-tr-2xl uppercase tracking-wider font-bold">
-                        Открытие 15 сентября
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-400 mb-2">Ловля Форели</h3>
-                    <p class="text-gray-500 text-sm mb-6">Спортивная рыбалка на хищника. <br><b>Строго: 1 снасть, 1 крючок.</b></p>
-                    
-                    <div class="space-y-6 mb-8">
-                        <div class="flex justify-between items-end border-b border-dark-800 pb-2">
-                            <div>
-                                <div class="text-lg text-gray-400">5 часов</div>
-                                <div class="text-xs text-gray-500 uppercase tracking-wide">Безлимит вылова</div>
-                            </div>
-                            <div class="font-serif text-3xl text-gray-400">3000<span class="text-xl text-gray-600">₽</span></div>
-                        </div>
-                        <div class="flex justify-between items-end border-b border-dark-800 pb-2">
-                            <div>
-                                <div class="text-lg text-gray-400">10 часов</div>
-                                <div class="text-xs text-gray-500 uppercase tracking-wide">Безлимит вылова</div>
-                            </div>
-                            <div class="font-serif text-3xl text-gray-400">5000<span class="text-xl text-gray-600">₽</span></div>
+                <!-- Форель (скоро открытие) -->
+                <div class="glass-panel p-6 md:p-8 rounded-2xl relative group transition duration-300 border-2 gold-pulse overflow-hidden bg-slate-900/70">
+                    <!-- Бегущая строка -->
+                    <div class="absolute top-0 left-0 right-0 marquee bg-gold-500 text-dark-950 text-[11px] sm:text-xs font-bold uppercase tracking-widest py-1.5">
+                        <div class="marquee__inner">
+                            <span class="px-6">Открытие форелевого пруда 10 октября!</span>
+                            <span class="px-6">Открытие форелевого пруда 10 октября!</span>
+                            <span class="px-6">Открытие форелевого пруда 10 октября!</span>
+                            <span class="px-6">Открытие форелевого пруда 10 октября!</span>
                         </div>
                     </div>
-                    
-                    <div class="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm text-gray-500">
-                        <ul class="space-y-2">
-                            <li><i class="fa-solid fa-triangle-exclamation text-red-500/60 mr-2"></i> Рыбалка без подсака <b>запрещена</b>!</li>
-                            <li><i class="fa-solid fa-triangle-exclamation text-red-500/60 mr-2"></i> Багрить рыбу <b>строго запрещено</b>!</li>
-                        </ul>
+
+                    <div class="pt-8">
+                        <h3 class="font-serif text-2xl text-white mb-2">Ловля Форели</h3>
+                        <p class="text-gray-400 text-sm mb-6">Спортивная рыбалка на хищника. <br><b>Строго: 1 снасть, 1 крючок.</b></p>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="flex justify-between items-end border-b border-dark-800 pb-2">
+                                <div>
+                                    <div class="text-lg text-gray-200">5 часов</div>
+                                    <div class="text-xs text-gold-400 uppercase tracking-wide">Безлимит вылова</div>
+                                </div>
+                                <div class="font-serif text-3xl text-white">3000<span class="text-xl text-gray-500">₽</span></div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-dark-800 pb-2">
+                                <div>
+                                    <div class="text-lg text-gray-200">10 часов</div>
+                                    <div class="text-xs text-gold-400 uppercase tracking-wide">Безлимит вылова</div>
+                                </div>
+                                <div class="font-serif text-3xl text-white">5000<span class="text-xl text-gray-500">₽</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm text-gray-300">
+                            <ul class="space-y-2">
+                                <li><i class="fa-solid fa-triangle-exclamation text-red-500 mr-2"></i> Рыбалка без подсака <b>запрещена</b>!</li>
+                                <li><i class="fa-solid fa-triangle-exclamation text-red-500 mr-2"></i> Багрить рыбу <b>строго запрещено</b>!</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
