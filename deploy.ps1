@@ -31,10 +31,11 @@ foreach ($f in $files) {
     if (Test-Path $f) { Copy-Item $f -Destination $dist } else { Write-Host "  Пропуск (нет файла): $f" -ForegroundColor Yellow }
 }
 Copy-Item "gallery-*.jpg" -Destination $dist
+Copy-Item "assets" -Destination $dist -Recurse -Force
 
 Write-Host "[2/3] Упаковываю в архив..." -ForegroundColor Cyan
 if (Test-Path dist.zip) { Remove-Item dist.zip -Force }
-Compress-Archive -Path "dist\*" -DestinationPath dist.zip -Force
+python zip_dist.py
 
 Write-Host "[3/3] Публикую на Netlify..." -ForegroundColor Cyan
 $cfg = Get-Content $NetlifyConfig -Raw | ConvertFrom-Json
