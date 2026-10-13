@@ -1,4 +1,4 @@
-# Обновление сайта 5letka.ru (хостинг: Netlify)
+﻿# Обновление сайта 5letka.ru (хостинг: Netlify)
 # Запуск: powershell -ExecutionPolicy Bypass -File .\deploy.ps1
 
 $ErrorActionPreference = "Stop"
@@ -16,7 +16,6 @@ $files = @(
     "index.html",
     "favicon.png",
     "favicon.svg",
-    "hero.jpg",
     "logo.jpg",
     "manifest.json",
     "robots.txt",
