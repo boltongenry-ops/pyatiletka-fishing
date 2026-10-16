@@ -37,13 +37,7 @@ Write-Host "[2/3] Упаковываю в архив..." -ForegroundColor Cyan
 if (Test-Path dist.zip) { Remove-Item dist.zip -Force }
 python zip_dist.py
 
-Write-Host "[3/3] Публикую на Netlify..." -ForegroundColor Cyan
-$cfg = Get-Content $NetlifyConfig -Raw | ConvertFrom-Json
-$token = ($cfg.users.PSObject.Properties | Select-Object -First 1).Value.auth.token
-if (-not $token) { throw "Не найден токен Netlify. Выполните: npx netlify-cli login" }
+Write-Host "[3/3] Публикую на Firebase Hosting..." -ForegroundColor Cyan
+npx --yes firebase-tools@latest deploy --only hosting --project pyatiletka-fishing
 
-$resp = Invoke-RestMethod -Method Post -Uri "https://api.netlify.com/api/v1/sites/$SiteId/deploys" `
-    -Headers @{ Authorization = "Bearer $token" } -ContentType "application/zip" -InFile "dist.zip"
-
-Write-Host ("Деплой отправлен: " + $resp.id) -ForegroundColor Green
 Write-Host "Готово! Через 10-20 секунд изменения появятся на https://5letka.ru" -ForegroundColor Green
